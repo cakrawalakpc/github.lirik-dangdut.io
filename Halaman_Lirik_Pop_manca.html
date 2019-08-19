@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <link rel="stylesheet" href="jquery.mobile-1.3.2.min.css" /> 
+   <script src="jquery-1.11.1.min.js"></script>
+   <script src="jquery.mobile-1.3.2.min.js"></script>
+	
+<br>
+	
+<script>
+
+    $.each(listJSON, function(i, field){
+        $('#mylist').append('<li>'+field.item+'</li>').listview('refresh');
+    });
+
+    var yourFilterFunction = function( text, searchValue, item ){
+        var flag = false,
+            sCat = null;
+            categoryVal =  $("#optCategory").val().toLowerCase();
+
+        $.each(listJSON, function(i, field) {
+            if(field.item === text) {
+                sCat = field.category;
+            }
+        });
+
+        flag = (text.toString().toLowerCase().indexOf(searchValue) > -1) && ((sCat.toLowerCase() === categoryVal || categoryVal === ''));
+        return !flag;
+    };
+
+    $("#mylist").listview('option', 'filterCallback', yourFilterFunction);
+
+    $("#optCategory").bind('change', function() {
+        var inputTxt = $("input.ui-input-text").val();
+        $(".ui-input-text").trigger("keyup");
+        $.each(listJSON, function(i, field) {
+            yourFilterFunction(field.item, inputTxt, $("#mylist").children().eq(i));
+        });
+    });
+
+});
+
+</script>
+<script>
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+ <style type="text/css">
+ 
+ 
+
+ .ui-input-search { max-width: 60%; margin: 0 auto; }
+	
+	 
+	 
+ </style>
+</head>
+
+<body>
+<div data-role="page" id="daftar_lagu">
+<div data-role="header" data-theme="b" data-position="fixed">
+<h1>LIRIK POP MANCA</h1>
+	
+     <div>
+		<form action="#">
+        <label for="search" class="ui-hidden-accessible">Search</label>
+        <input id="myInput" onkeyup="myFunction()" placeholder="Cari lirik.." name="search" type="search" >	
+    </form>
+  </div>
+</div>
+<div data-role="content">
+
+     <ul id="myUL" data-role="listview" data-inset="true">
+	     
+	
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+	 <li><a href="#"> POP SUNDA</a></li>
+     </ul>
+
+
+
+</div>
+
+
+
+</body>
+<html>
