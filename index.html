@@ -1,0 +1,578 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <link rel="stylesheet" href="jquery.mobile-1.3.2.min.css" /> 
+   <script src="jquery-1.11.1.min.js"></script>
+   <script src="jquery.mobile-1.3.2.min.js"></script>
+	
+<br>
+	
+<script>
+
+    $.each(listJSON, function(i, field){
+        $('#mylist').append('<li>'+field.item+'</li>').listview('refresh');
+    });
+
+    var yourFilterFunction = function( text, searchValue, item ){
+        var flag = false,
+            sCat = null;
+            categoryVal =  $("#optCategory").val().toLowerCase();
+
+        $.each(listJSON, function(i, field) {
+            if(field.item === text) {
+                sCat = field.category;
+            }
+        });
+
+        flag = (text.toString().toLowerCase().indexOf(searchValue) > -1) && ((sCat.toLowerCase() === categoryVal || categoryVal === ''));
+        return !flag;
+    };
+
+    $("#mylist").listview('option', 'filterCallback', yourFilterFunction);
+
+    $("#optCategory").bind('change', function() {
+        var inputTxt = $("input.ui-input-text").val();
+        $(".ui-input-text").trigger("keyup");
+        $.each(listJSON, function(i, field) {
+            yourFilterFunction(field.item, inputTxt, $("#mylist").children().eq(i));
+        });
+    });
+
+});
+
+</script>
+<script>
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+ <style type="text/css">
+ 
+ 
+
+ .ui-input-search { max-width: 60%; margin: 0 auto; }
+	
+	 
+	 
+ </style>
+</head>
+
+<body>
+<div data-role="page" id="daftar_lagu">
+<div data-role="header" data-theme="b" data-position="fixed">
+<h1>LIRIK DANGDUT</h1>
+	
+     <div>
+		<form action="#">
+        <label for="search" class="ui-hidden-accessible">Search</label>
+        <input id="myInput" onkeyup="myFunction()" placeholder="Cari lirik.." name="search" type="search" >	
+    </form>
+  </div>
+</div>
+<div data-role="content">
+
+     <ul id="myUL" data-role="listview" data-inset="true">
+	     
+	<li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-abang-kumis-rita-sugiarto.html">       Abang Kumis - Rita Sugiarto </a></li>
+         <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-abg-tua.html">               ABG Tua - Fitri Carlina</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-acuh-takacuh.html">       Acuh Tak Acuh - Rita Sugiarto</a></li>
+	  <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-ada-rindu.html">      Ada Rindu - Evie Tamala</a></li>	
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-adu-domba.html">             Adu Domba - Rhoma Irama</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-aduhai.html">      Aduhai - Rhoma Irama</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-air-bunga.html">     Air Bunga - Rita Sugiarto</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-air-mata-perkawinan.html">          Air Mata Perkawinan - Mansyur S</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-air-mata-bawang.html">       Air Mata Bawang - Caca Handika</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-air-mata-darah.html">     Air Mata Darah - Rhoma Irama</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-air-mata-tiada-arti.html">    Air Mata Tiada Arti - Leo Waldi</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-air-tuba.html">          Air Tuba - Mansyur</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-akhir-sebuah-cerita.html">   Akhir Sebuah Cerita - Evie Tamala</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-aku-cah-kerjo.html">      Aku Cah Kerjo - Nella Kharisma</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/aku-dibarat-engkau-ditimur-lirik.html">       Aku Di Barat Engkau Di Timur - Asep Irama</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/aku-mah-apa-lirik-lagu.html">       Aku Mah Apa - Jupe</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-aku-ra-popo.html">        Aku Ra Popo - Jupe</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-aku-rindu-padamu.html">   Aku Rindu Padamu - Evie Tamala</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-aku-tak-butuh-cinta.html">      Aku Tak Butuh Cinta - Minawati Dewi</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-alamat-palsu.html">       Alamat Palsu - Ayu Tingting</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-alay.html">             Alay - Lolita</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-alun-alun-nganjuk.html">      Alun Alun Nganjuk - Didi Kempot</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-ampunilah.html">        Ampunilah - Rhoma Irama</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-anak-yang-malang.html">       Anak Yang Malang - Rhoma Irama</a></li>
+	 <li><a href="https://simplesonglirik.blogspot.com/2019/08/lirik-lagu-anak-pertama.html">        Anak pertama - Noer Halimah</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutanaksiapa.csv">        Anak Siapa - Mansyur S</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutanggeorong.csv">       Ange Angge Orong Orong - Didi Kempot</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutanggurmerah.csv">      Anggur Merah - Meggi Z</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutanggurputih.csv">      Anggur Putih - Muchsin Alatas </a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutangkasatu.csv">        Angka Satu - Caca Handika</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutani.csv">              Ani - homa Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutanjingsampah.csv">     Anjing Dan Sampah - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutanomanobong.csv">      Anoman Obong - Waljinah</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutantarateman.csv">      Antara Teman Dan Kasih - Riza Umami</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutapakabar.csv">         Apa Kabar - Rita Sugiarto</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutargolawu.csv">         Argolawu - Didi Kempot</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutarjun.csv">            Arjun - Yus Yunus - Iis Dahlia</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutarjunabuaya.csv">      Arjuna Buaya - Inul Daratista</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutasmaraevi.csv">        Asmara - Evie Tamala</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutawetmuda.csv">         Awet Muda - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutayah.csv">             Ayah - Tasya Rosmala</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutayamjago.csv">         Ayam Jago - Aida Saskia</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutazza.csv">             Azza - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbaca.csv">             Baca - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbadaibiru.csv">        Badai Biru - Ice Trisnawati</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbadaifitnah.csv">      Badai Fitnah - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbaeabere.csv">         Bara Bere - Siti Badriyah</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbagaidisambarpetir.csv">Bagai Disambar Petir - Ikke Nurjanah</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbahteracinta.csv">     Bahtera Cinta - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbajusatu.csv">         Baju Satu Kering Di Badan - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbangjono.csv">         Bang Jono - Zaskia Gotik</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbangkitlah.csv">       Bangkitlah - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbangroni.csv">         Bang Roni - Dian Widya</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbangtoyib.csv">        Bang Toyib - Wali</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbanyulangit.csv">      Banyu Langit - Didi Kempot</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbasahbaah.csv">        Basah Basah - Hesti Damara</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbayanganmu.csv">       Bayanganmu - Elvi Sukaesih</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbayangbayang.csv">     Bayang Bayang - Noerhalimah</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbegadang1.csv">        Begadang 1 - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbegadang2.txt">        Begadang 2 - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Lirik-Dangdut/master/dutbekaspacar.csv">       Bekas Pacar - Hamdan ATT</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbeku.csv">              Beku - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbelahduren.txt">        Belah Duren - Julia Perez</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbenangbiru.csv">        Benang Biru - Meggi Z</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutberakhirpula.csv">      Berakhir Pula - Meggi Z</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbercanda.csv">          Bercanda - Elvi Sukaesih</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutberdaralgi.csv">        Berdarah Lagi - Elvy Sukaesih</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutberdendang.csv">        Berdendang - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutberdosa.csv">           Berdosa - Mansyur S</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutberkawanduka.csv">      Berkawan Dua - Hamdan ATT</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutberonddong.csv">        Berondong Tua - Siti Badriyah</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbiarmerana.csv">        Biarlah Merana - Rita Sugiarto</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbidadarikeseleo.csv">   Bidadari Keseleo - Nella Kharisma</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbiduan.csv">            Biduan - Rita Sugiarto</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbimbanglirik.csv">      Bimbang - Elvy Sukaesih </a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbintangpentas.csv">     Bintang Pentas - Dewi Persik</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbirucinta.csv">         Birunya Cinta - Dayu AG</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbirurindu.csv">         Birunya Rindu - Ikke Nurjanah</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbisikkasih.csv">        Bisikan Kasih - Elvy Sukaesih</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbojogalak.csv">         Bojo Galak - Nella K</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbojoloro.csv">          Bojo Loro - Ratna Anjani</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbonekaindia.csv">       Boneka India - Ellya Kadam </a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbosomoyo.csv">          Boso Moto - Gerry $ Tasya</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbuahdurineraka.csv">    Buah Duri Neraka - Rhoma Irama</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbuayabyng.csv">         Buaya Buntung - Inul D</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbukanceritadusta.csv">  Bukan Cerita Dusta - Itje Trisnawati</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbukantmampu.csv">       Bukan Tak Mampu - Minawati Dewi</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbukanyangkupinta.csv">  Bukan Yang Kupinta - Rita Sugiarto</a></li>
+	 <li><a href="https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbukanygptama.csv">      Bukan Yang Pertama - Mega Mustika</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbulanbintng.csv "> Bulan Bintang - Rhoma Irama </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbulandiratng.csv "> Bulan Di Ranting Cemara - Elvy Sukaesih </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbumimakinps.csv "> Bumi Makin Panas - Cucu Cahyati </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbumipunmngis.csv "> Bumipun Turut Menangis - Tasya </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbundadandut.csv "> Bunda - Erie Susan</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbunga.csv "> Bunga   </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbungacinta.csv "> Bunga Bunga Cinta - Intan Ali </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbungadahlia.csv "> Bunga Dahlia - Mansyur </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbungadankbng.csv "> Bunga Dan Ku mbang - Camelia Malik</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbungapengtin.csv "> Bunga Pengantin - Mirnawati </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbungasurga.csv "> Bunga Surga - Rhoma Irama</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutbutakrnacnta.csv "> Buta Karna Cinta - Mansyur S.</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcabecabean.csv "> Cabe Cabean - iMeyMey</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcahayacinta.csv "> Cahaya Cint - Kurnia Z </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcaka.csv "> Caka - Novi Alya</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcelurit.csv "> Celurit Cinta - Mansyur </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcemarabiru.csv "> Cemara Biru - Noer Halimah </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcemburubuta.csv "> Cemburu Buta - Rita Sugiarto</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutceritaanakjalanan.csv "> Cerita Anak Jalanan - Nella K </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcincinkawin.csv "> Cincin Kawin - Rhoma Irama </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcincinkepalsu.csv "> Cincin Kepalsuan - Elvy Sukaesih </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcincinpermat.csv "> Cincin Permata Biru - Rita Sugiarto </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcincinputih.csv "> Cincin Putih - Caca Handika </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcindai.csv "> Cindai - Siti Nurhasizah </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintaabadiddt.csv "> Cinta Abadi - Rhoma Irama, Elvy Sukaesih </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintaapalh.txt "> Cinta Apalah - Iis Dahlia </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintaberawan.csv "> Cinta  Berawan - Rita Sugiarto </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintaberpyng.csv "> Cinta Berpayung Bulan - Ayu Soraya </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintabukalakpl.csv "> Cinta Bukanlah Kapal - Iis Dahlia </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintadilema.csv "> Cinta Dalam Dilema - Ikke Nurjanah</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintahtm.csv "> Cinta Hitam - Meggy Z </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintaplsu.csv "> Cinta Palsu - Elvy Sukaesih </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintaptma.csv "> Cinta Pertama </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintarahasia.csv "> Cinta Rahasia - Elvy Sukaesih </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintasabunm.csv "> Cita Sabun Mandi - Jaja Miharja </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintasampaidi.csv "> Cinta Sampai Disini - Mansyur S </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintasatumalam.csv "> Cinta Satu Malam - Melinda </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintasegitiga.csv "> Cinta Segitiga - Rita Sugiarto </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcintaterisolasi.csv "> Cinta Terisolasi - Lilis Karlina </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcucakrowo.csv "> Cucakrowo </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcumakamu.csv "> Cuma Kamu - Imam S Arifin </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcumasatu.csv "> Cuma Satu - Ayu Soraya </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcupcup.csv "> Cup Cup - Rita Sugiarto</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutcurang.csv "> Curang - Rita Sugiarto </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdahsyat.csv "> Dahsyat - Abiem Ngesti </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdalananyar.csv "> Dalan Anyar - Maqdalena </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdarahmuda.csv "> Darah Muda - Rhoma Irama </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdasigincu.csv "> Dasi Dan Gincu - Rhoma Irama</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdatangpergi.csv "> Datang Untuk Pergi - Elvy Sukaesih </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdawai.csv "> Dawai Asmara - Rhoma Irama </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdebujalanan.csv "> Debu Debu jalanan - Imam S Arifin</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdelima.csv "> Delima - Jotha RG & Yulia Citra </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdenyutasmara.csv "> Denyut Asmara - Vetty Verra </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutderita.csv "> Derita - Rhoma Irama</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutderitadibalik.csv "> Derita di Balik Tawa - Roma Irama</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdermagacinta.csv "> Derita Di Atas Derita - Noer Halimah </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdialelaki.csv "> Dia Lelak Aku Lelaki - Leo Waldy </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdigilir.csv "> Digilir Cinta - Dewi Asti </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdingin.csv "> Dingin - Hamdan ATT </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdireject.csv "> Di Reject - Jenita Janet </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutditelanalam.csv "> Di Telan Alam - Elvy Sukaesih </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutditinggalrabi.csv "> Ditinggal Rabi - Nella Khasisma </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdoasuci.csv "> Doa Suci - Imam S Arifin </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdomisol.csv "> Do  Mi  Sol - Rhoma Irama</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdontwori.csv "> Dont Worry U Yeah - Tony Q </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdosakauanggapmadu.csv "> Dosa Kau Anggap Madu - Johny Iskandar </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutduadua.csv "> Dua Dua - Mansyur S </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutduakursi.csv "> Dua Kursi - Rita Sugiarto </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutduda.csv "> Duda Merana - Mas'ud Sidik </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdudaarab.csv "> Duda Araban - Uun Sagita </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutdutairmatakawin.csv "> Air Mata Perkawinan </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutedanturun.csv "> Edan Turun - Trio Macan </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutegois.csv ">Egois - Lesti </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutemansiasi.csv "> Emansipasi Wanita - Rhoma Irama </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutemosidiri.csv "> Emosi Diri - Murni Chania </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutempatbls.csv "> Empat Belas Malam - Tasya </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/duterminalgiwangan.csv "> Terminal Giwangan </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutfatamorgana.csv "> Fatamorgana - Rhoma Irama </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgabisabo.csv "> Ga Bisa Bobo - Nita Thalia </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgadisbkanpr.csv "> Gadis Bukan Perawan - Linda Moymoy </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgadisjanda.csv "> Gadis Atau Janda - Elvy Sukaesih </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgadismsia.csv "> Gadis Malaysia - Yus Yunus </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgadispantura.csv "> Gadis Pantura - Mansyur S </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgalagala.csv "> Gala-galan - Rhoma Irama </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgalilobang.csv "> Gali Lobang Tutup Loban - Rhoma Irama</a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgeboymijar.csv "> Geboy Mujair - Ayu Tingting </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgedungtua.csv "> Gedung Tua - Rana Rani </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgelandang.csv "> Gelandangan - Rhoma Irama </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgemantungeroso.csv "> Gemantung Roso - Nella K </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgerimismelandahati.csv "> Gerimis Melanda Hati - Erie Susan </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgitacinta.csv "> Segitiga Cinta - Gerry Tasya </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgitartua.csv "> Gitar Tua - Rhoma Irama </a></li>
+	  <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgoyah.csv "> Goyah - Rita Sugiarto </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgoyangdomret.csv "> Goyang Dombret </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgoyangduajari.csv "> Goyang Dua Jari - Sandrina </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgoyangdumng.csv "> Goyang Dumang - Cita Citata </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgoyangheboh.csv "> Goyang Heboh - Nita Thalia </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgoyanginul.csv "> Goyang Inul - Inul D </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgoyangkarawang.csv "> Goyanmg Karawang - Lilis K </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgoyangsenggl.csv "> Goyang Senggol - Camelia Malik </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgubukbambu.csv "> Gubuk Bambu - Meggy Z </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/dutgubukderita.csv "> Gubuk Derita - Ine Sinthya </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/duthabisgelap.csv "> Habis Gelap Terbitlah Terang </a></li>
+	 <li><a href=" https://raw.githubusercontent.com/cakrawalakpc/Album-Lirik-Lagu/master/LirikDangdut/duthalodangdut.csv "> Hallo Dangdut - Rita Sugiarto </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	  <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	  <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	  <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	  <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	  <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	 <li><a href=" # "> ## </a></li>
+	     
+	     
+	     
+	     
+	     
+	 
+     </ul>
+
+
+
+</div>
+
+
+
+</body>
+<html>
